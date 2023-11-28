@@ -29,17 +29,24 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            label1 = new Label();
-            txtCpf = new TextBox();
+            txtId = new TextBox();
+            label3 = new Label();
+            chkAtivo = new CheckBox();
             txtNome = new TextBox();
             label2 = new Label();
-            chkAtivo = new CheckBox();
+            txtCpf = new TextBox();
+            label1 = new Label();
             groupBox2 = new GroupBox();
-            btnAdicionar = new Button();
-            btnAtualizar = new Button();
-            btnExcluir = new Button();
             btnListar = new Button();
+            btnExcluir = new Button();
+            btnAtualizar = new Button();
+            btnAdicionar = new Button();
             gridClientes = new DataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
+            Column5 = new DataGridViewCheckBoxColumn();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridClientes).BeginInit();
@@ -47,6 +54,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(txtId);
+            groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(chkAtivo);
             groupBox1.Controls.Add(txtNome);
             groupBox1.Controls.Add(label2);
@@ -60,21 +69,32 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Cliente";
             // 
-            // label1
+            // txtId
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(16, 36);
-            label1.Name = "label1";
-            label1.Size = new Size(54, 32);
-            label1.TabIndex = 0;
-            label1.Text = "CPF";
+            txtId.Enabled = false;
+            txtId.Location = new Point(266, 66);
+            txtId.Name = "txtId";
+            txtId.Size = new Size(215, 39);
+            txtId.TabIndex = 6;
             // 
-            // txtCpf
+            // label3
             // 
-            txtCpf.Location = new Point(19, 66);
-            txtCpf.Name = "txtCpf";
-            txtCpf.Size = new Size(215, 39);
-            txtCpf.TabIndex = 1;
+            label3.AutoSize = true;
+            label3.Location = new Point(263, 36);
+            label3.Name = "label3";
+            label3.Size = new Size(37, 32);
+            label3.TabIndex = 5;
+            label3.Text = "ID";
+            // 
+            // chkAtivo
+            // 
+            chkAtivo.AutoSize = true;
+            chkAtivo.Location = new Point(19, 207);
+            chkAtivo.Name = "chkAtivo";
+            chkAtivo.Size = new Size(91, 36);
+            chkAtivo.TabIndex = 4;
+            chkAtivo.Text = "Ativo";
+            chkAtivo.UseVisualStyleBackColor = true;
             // 
             // txtNome
             // 
@@ -92,15 +112,21 @@
             label2.TabIndex = 2;
             label2.Text = "Nome";
             // 
-            // chkAtivo
+            // txtCpf
             // 
-            chkAtivo.AutoSize = true;
-            chkAtivo.Location = new Point(19, 207);
-            chkAtivo.Name = "chkAtivo";
-            chkAtivo.Size = new Size(91, 36);
-            chkAtivo.TabIndex = 4;
-            chkAtivo.Text = "Ativo";
-            chkAtivo.UseVisualStyleBackColor = true;
+            txtCpf.Location = new Point(19, 66);
+            txtCpf.Name = "txtCpf";
+            txtCpf.Size = new Size(215, 39);
+            txtCpf.TabIndex = 1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(16, 36);
+            label1.Name = "label1";
+            label1.Size = new Size(54, 32);
+            label1.TabIndex = 0;
+            label1.Text = "CPF";
             // 
             // groupBox2
             // 
@@ -115,15 +141,26 @@
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             // 
-            // btnAdicionar
+            // btnListar
             // 
-            btnAdicionar.Location = new Point(18, 32);
-            btnAdicionar.Name = "btnAdicionar";
-            btnAdicionar.Size = new Size(142, 47);
-            btnAdicionar.TabIndex = 0;
-            btnAdicionar.Text = "Adicionar";
-            btnAdicionar.UseVisualStyleBackColor = true;
-            btnAdicionar.Click += btnAdicionar_Click;
+            btnListar.Location = new Point(495, 32);
+            btnListar.Name = "btnListar";
+            btnListar.Size = new Size(142, 47);
+            btnListar.TabIndex = 3;
+            btnListar.Text = "Listar";
+            btnListar.UseVisualStyleBackColor = true;
+            btnListar.Click += btnListar_Click;
+            // 
+            // btnExcluir
+            // 
+            btnExcluir.Enabled = false;
+            btnExcluir.Location = new Point(333, 32);
+            btnExcluir.Name = "btnExcluir";
+            btnExcluir.Size = new Size(142, 47);
+            btnExcluir.TabIndex = 2;
+            btnExcluir.Text = "Excluir";
+            btnExcluir.UseVisualStyleBackColor = true;
+            btnExcluir.Click += btnExcluir_Click;
             // 
             // btnAtualizar
             // 
@@ -135,35 +172,76 @@
             btnAtualizar.UseVisualStyleBackColor = true;
             btnAtualizar.Click += btnAtualizar_Click;
             // 
-            // btnExcluir
+            // btnAdicionar
             // 
-            btnExcluir.Location = new Point(333, 32);
-            btnExcluir.Name = "btnExcluir";
-            btnExcluir.Size = new Size(142, 47);
-            btnExcluir.TabIndex = 2;
-            btnExcluir.Text = "Excluir";
-            btnExcluir.UseVisualStyleBackColor = true;
-            btnExcluir.Click += btnExcluir_Click;
-            // 
-            // btnListar
-            // 
-            btnListar.Location = new Point(495, 32);
-            btnListar.Name = "btnListar";
-            btnListar.Size = new Size(142, 47);
-            btnListar.TabIndex = 3;
-            btnListar.Text = "Listar";
-            btnListar.UseVisualStyleBackColor = true;
-            btnListar.Click += btnListar_Click;
+            btnAdicionar.Location = new Point(18, 32);
+            btnAdicionar.Name = "btnAdicionar";
+            btnAdicionar.Size = new Size(142, 47);
+            btnAdicionar.TabIndex = 0;
+            btnAdicionar.Text = "Adicionar";
+            btnAdicionar.UseVisualStyleBackColor = true;
+            btnAdicionar.Click += btnAdicionar_Click;
             // 
             // gridClientes
             // 
+            gridClientes.AllowUserToAddRows = false;
+            gridClientes.AllowUserToDeleteRows = false;
+            gridClientes.BackgroundColor = Color.White;
             gridClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            gridClientes.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5 });
             gridClientes.Location = new Point(14, 387);
             gridClientes.Name = "gridClientes";
+            gridClientes.ReadOnly = true;
             gridClientes.RowHeadersWidth = 51;
             gridClientes.RowTemplate.Height = 29;
             gridClientes.Size = new Size(757, 264);
             gridClientes.TabIndex = 2;
+            gridClientes.CellClick += gridClientes_CellClick;
+            // 
+            // Column1
+            // 
+            Column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            Column1.HeaderText = "#";
+            Column1.MinimumWidth = 6;
+            Column1.Name = "Column1";
+            Column1.ReadOnly = true;
+            Column1.Width = 47;
+            // 
+            // Column2
+            // 
+            Column2.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            Column2.HeaderText = "ID";
+            Column2.MinimumWidth = 6;
+            Column2.Name = "Column2";
+            Column2.ReadOnly = true;
+            Column2.Width = 53;
+            // 
+            // Column3
+            // 
+            Column3.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            Column3.HeaderText = "CPF";
+            Column3.MinimumWidth = 6;
+            Column3.Name = "Column3";
+            Column3.ReadOnly = true;
+            Column3.Width = 62;
+            // 
+            // Column4
+            // 
+            Column4.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            Column4.HeaderText = "NOME";
+            Column4.MinimumWidth = 6;
+            Column4.Name = "Column4";
+            Column4.ReadOnly = true;
+            Column4.Width = 81;
+            // 
+            // Column5
+            // 
+            Column5.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            Column5.HeaderText = "ATIVO";
+            Column5.MinimumWidth = 6;
+            Column5.Name = "Column5";
+            Column5.ReadOnly = true;
+            Column5.Width = 56;
             // 
             // FrmCadCliente
             // 
@@ -196,5 +274,12 @@
         private Button btnAdicionar;
         private Button btnListar;
         private DataGridView gridClientes;
+        private TextBox txtId;
+        private Label label3;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column4;
+        private DataGridViewCheckBoxColumn Column5;
     }
 }
